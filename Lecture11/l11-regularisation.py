@@ -10,7 +10,7 @@ from sklearn.linear_model import Lasso
 
 # Create a dictionary to pass to matplotlib
 # This is an easy way to set many parameters at once
-fontsize = "30";
+fontsize = "30"
 params = {'figure.autolayout':True,
           'legend.fontsize': fontsize,
           'figure.figsize': (16, 8),

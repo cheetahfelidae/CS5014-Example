@@ -8,27 +8,27 @@ from sklearn.linear_model import LinearRegression
 
 # Create a dictionary to pass to matplotlib
 # This is an easy way to set many parameters at once
-fontsize = "30";
-params = {'figure.autolayout':True,
-          'legend.fontsize': fontsize,
-          'figure.figsize': (24, 8),
-         'axes.labelsize': fontsize,
-         'axes.titlesize': fontsize,
-         'xtick.labelsize':fontsize,
-         'ytick.labelsize':fontsize}
+fontsize = "30"
+params = {'figure.autolayout': True,
+          'legend.fontsize'  : fontsize,
+          'figure.figsize'   : (24, 8),
+          'axes.labelsize'   : fontsize,
+          'axes.titlesize'   : fontsize,
+          'xtick.labelsize'  : fontsize,
+          'ytick.labelsize'  : fontsize}
 plt.rcParams.update(params)
 
-X = np.linspace(-4,4,100)
+X = np.linspace(-4, 4, 100)
 inputs = [X, X, X]
 
-H = [np.ones_like(X), X, X**2]
-Hdesc = ['$h_1(X) = 1$','$h_2(X) = X$','$h_3(X) = X^2$']
+H = [np.ones_like(X), X, X ** 2]
+Hdesc = ['$h_1(X) = 1$', '$h_2(X) = X$', '$h_3(X) = X^2$']
 Colours = ['blue', 'red', 'green']
 
 XLims = [[-1, 4]] * 3
 YLims = [[-1, 4]] * 3
 
-for j, (x, y, xlim, ylim,c,desc) in enumerate(zip(inputs, H, XLims, YLims, Colours,Hdesc)):
+for j, (x, y, xlim, ylim, c, desc) in enumerate(zip(inputs, H, XLims, YLims, Colours, Hdesc)):
     ax = plt.subplot(1, 3, j + 1)
     ax.grid(color='lightgray', linestyle='-', linewidth=1)
     ax.set_axisbelow(True)
@@ -42,17 +42,17 @@ plt.savefig('plot_bases.png')
 # Display in a window
 plt.show()
 
-X = np.linspace(-4,4,100)
+X = np.linspace(-4, 4, 100)
 inputs = [X, X, X]
 
-H = [X, np.clip(X+2.5,0,None), np.clip(X-2.5,0,None)]
-Hdesc = ['$h_2(X) = X$','$h_3(X) = (X-\\xi_1)_+$','$h_4(X) = (X-\\xi_2)_+$']
+H = [X, np.clip(X + 2.5, 0, None), np.clip(X - 2.5, 0, None)]
+Hdesc = ['$h_2(X) = X$', '$h_3(X) = (X-\\xi_1)_+$', '$h_4(X) = (X-\\xi_2)_+$']
 Colours = ['red', 'purple', 'orange']
 
 XLims = [[-4, 4]] * 3
 YLims = [[-1, 4]] * 3
 
-for j, (x, y, xlim, ylim,c,desc) in enumerate(zip(inputs, H, XLims, YLims, Colours,Hdesc)):
+for j, (x, y, xlim, ylim, c, desc) in enumerate(zip(inputs, H, XLims, YLims, Colours, Hdesc)):
     ax = plt.subplot(1, 3, j + 1)
     ax.grid(color='lightgray', linestyle='-', linewidth=1)
     ax.set_axisbelow(True)
@@ -65,5 +65,3 @@ for j, (x, y, xlim, ylim,c,desc) in enumerate(zip(inputs, H, XLims, YLims, Colou
 plt.savefig('plot_bases_piecewise.png')
 # Display in a window
 plt.show()
-
-
